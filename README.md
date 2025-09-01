@@ -1,138 +1,97 @@
-🎵 Speech Emotion Recognition using RAVDESS
-📌 Project Overview
+# 🎵 Speech Emotion Recognition using RAVDESS
 
-This project implements Speech Emotion Recognition (SER) using the RAVDESS dataset
-. The dataset contains audio files of actors speaking with different emotional tones such as happiness, sadness, anger, fear, surprise, calm, and neutral.
+## 📌 Project Overview  
+This project implements **Speech Emotion Recognition (SER)** using the [RAVDESS dataset](https://zenodo.org/record/1188976).  
+The aim is to classify human emotions from speech audio files.  
 
-The main goal is to develop a model that can accurately classify human emotions from speech audio files, which has potential applications in:
+### 🔥 Applications:
+- 🎙️ Human–Computer Interaction (HCI)  
+- 🤖 Virtual assistants (Alexa, Siri, Google Assistant)  
+- 🎬 Media & entertainment analytics  
+- 🧠 Mental health monitoring  
 
-🎙️ Human–Computer Interaction (HCI)
+---
 
-🤖 Virtual assistants (Alexa, Siri, Google Assistant)
+## 📂 Dataset  
+- **Source:** Ryerson Audio-Visual Database of Emotional Speech and Song (RAVDESS)  
+- **Format:** `.wav` audio files organized by actor folders  
+- **Emotions Covered:** Neutral, Calm, Happy, Sad, Angry, Fearful, Disgust, Surprised  
 
-🎬 Media & entertainment analytics
-
-🧠 Mental health monitoring
-
-📂 Dataset
-
-Source: Ryerson Audio-Visual Database of Emotional Speech and Song (RAVDESS)
-
-Structure: Audio files stored by Actor IDs
-
-Format: .wav files
-
-Classes: Neutral, Calm, Happy, Sad, Angry, Fearful, Disgust, Surprised
-
-Example file naming convention:
-
+**Example filename:**  
 03-01-05-01-02-02-23.wav
 
+Where each number represents:  
+1. Modality (speech/song)  
+2. Vocal channel  
+3. Emotion  
+4. Emotional intensity  
+5. Statement  
+6. Repetition  
+7. Actor ID  
 
-Where each number represents:
+---
 
-Modality (speech/song)
+## ⚙️ Project Workflow  
+1. **Data Preprocessing**  
+   - Converted `.wav` files into numerical features using **MFCCs (Mel Frequency Cepstral Coefficients)**  
+   - Normalized feature vectors  
+   - Split dataset into train/test sets  
 
-Vocal channel
+2. **Model Training**  
+   - Implemented models such as:  
+     - 🎯 Multi-Layer Perceptron (MLP)  
+     - 🎯 CNN/RNN (optional extension)  
+   - Used cross-validation and hyperparameter tuning  
 
-Emotion
+3. **Evaluation**  
+   - Metrics: **Accuracy, Precision, Recall, F1-score**  
+   - Confusion matrix to analyze per-class performance  
 
-Emotional intensity
+---
 
-Statement
+## 📊 Results  
+- Achieved **XX% accuracy** on test set  
+- Common misclassifications: **Calm vs Neutral**, **Happy vs Surprised**  
+- Demonstrated feasibility of using MFCC + ML/DL models for speech emotion detection  
 
-Repetition
+---
 
-Actor ID
+## 🛠️ Tech Stack  
+- **Language:** Python  
+- **Libraries:**  
+  - `librosa` – audio feature extraction  
+  - `numpy`, `pandas` – data handling  
+  - `matplotlib`, `seaborn` – visualization  
+  - `scikit-learn`, `tensorflow/keras` – ML/DL models  
 
-⚙️ Project Workflow
+---
 
-Data Preprocessing
+## 🚀 How to Run  
+1. Clone this repository:  
+   ```bash
+   git clone https://github.com/Shreyaparab28/Speech-Emotion-Detection.git
+   cd Speech-Emotion-Detection
 
-Converted .wav files into numerical features using MFCCs (Mel Frequency Cepstral Coefficients)
-
-Normalized feature vectors for consistency
-
-Split dataset into training and testing sets
-
-Model Training
-
-Tested multiple ML models:
-
-🎯 MLP (Multi-Layer Perceptron)
-
-🎯 CNN/RNN (optional extension if implemented)
-
-Optimized using cross-validation and hyperparameter tuning
-
-Evaluation
-
-Metrics used: Accuracy, Precision, Recall, F1-score
-
-Confusion matrix to analyze per-class performance
-
-Deployment (optional)
-
-Built an interactive pipeline to test real-time audio inputs
-
-📊 Results
-
-Achieved XX% accuracy on the RAVDESS test set
-
-Most common misclassifications were between Calm vs Neutral and Happy vs Surprised
-
-Demonstrated feasibility of using MFCC + ML models for emotion recognition
-
-🛠️ Tech Stack
-
-Language: Python
-
-Libraries:
-
-librosa – audio feature extraction
-
-numpy, pandas – data handling
-
-matplotlib, seaborn – visualization
-
-scikit-learn, tensorflow/keras – ML/DL models
-
-🚀 How to Run
-
-Clone this repository:
-
-git clone https://github.com/Shreyaparab28/Speech-Emotion-Detection.git
-cd Speech-Emotion-Detection
-
-
-Install dependencies:
-
+2. Install dependencies:
+```bash
 pip install -r requirements.txt
+```
 
-
-Run preprocessing & training:
-
+3. Train the model:
+```bash
 python train.py
+```
 
-
-Test with custom audio:
-
+4. Test with custom audio:
+```bash
 python predict.py path/to/audio.wav
-
-📌 Future Improvements
-
-Experiment with transformer-based architectures (e.g., Wav2Vec2, HuBERT)
-
-Add real-time inference with microphone input
-
-Expand dataset beyond RAVDESS for better generalization
-
-Deploy as a Flask/FastAPI web app
+```
 
 📖 References
 
-Livingstone, S. R., & Russo, F. A. (2018). The Ryerson Audio-Visual Database of Emotional Speech and Song (RAVDESS). Zenodo.
+- Livingstone, S. R., & Russo, F. A. (2018). The Ryerson Audio-Visual Database of Emotional Speech and Song (RAVDESS). Zenodo.
 
-Librosa Documentation
+- Librosa Documentation
 
-Keras Documentation
+- Keras Documentation
+
